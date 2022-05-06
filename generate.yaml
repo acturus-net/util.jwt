@@ -1,0 +1,22 @@
+---
+- name: Generate a JWT Token
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+
+  tasks:
+
+    - name: NPM Install
+      shell: "npm install"
+
+    - name: Gererate Token
+      environment:
+        PRIVATE_KEY: "{{ lookup('hashi_vault', 'secret=secret/intdev/jwt:private_key ') }}"
+      shell: "PRIVATE_KEY=$PRIVATE_KEY node generate.js"
+      register: output
+
+    - debug:
+        var: output.stdout_lines

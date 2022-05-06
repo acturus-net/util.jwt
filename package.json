@@ -1,0 +1,21 @@
+{
+  "name": "jwt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jwt",
+    "generate"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv-safe": "^8.2.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3"
+  }
+}
